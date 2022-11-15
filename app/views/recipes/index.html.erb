@@ -1,7 +1,10 @@
 <br><br><div class="container" align="center">
-    <h1>All recipes</h1>
+    <h1>All recipes</h1><br>
+<%= link_to "Add recipe" , new_user_recipe_path, class:"btn btn-success"%>
+
+
 <% @recipes.each do |recipe|%>
-<a href="./<%=recipe.id%>/" class="text-decoration-none">
+<a href="./recipes/<%=recipe.id%>/" class="text-decoration-none">
 <div class="d-flex justify-content-around align-items-center recipe-data">
   <div>
    <h3><%=recipe.id%>#<%= recipe.name %></h3>
@@ -17,5 +20,6 @@
 </div>
 </a>
 <% end %>
+
 
 </div>

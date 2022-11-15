@@ -1,4 +1,5 @@
 <br><br><div class="container">
+<br>
     <h1 align="center"><%= @recipe.name %></h1>
 
 <div class="d-flex justify-content-around">
@@ -18,5 +19,8 @@
   <button>Generate shopping list</button>
   <button>Add ingredient</button>
 </div>
+
+<%= link_to "Back" , user_recipes_path%>
+
 <hr>
 </div>
