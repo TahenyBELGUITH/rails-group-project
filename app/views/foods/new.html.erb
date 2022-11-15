@@ -1,0 +1,15 @@
+<div class='foods_page'>
+<div class='foods_header'>
+<h2> REGISTER FOOD </h2>
+<%= link_to "Food list", foods_path %>
+</div>
+<%= form_with model: @food, path: foods_path do |f| %>
+
+  <%= f.text_field :name, placeholder: "Enter Food Name" %>
+  <%= f.text_field :measurement_unit, placeholder: "Enter measurement unit" %>
+  <%= f.number_field :quantity , placeholder: "Ente quantity"%>
+  <%= f.number_field :price , placeholder: "Enter the price"%>
+  <%= f.submit %>
+
+<% end %>
+</div>
