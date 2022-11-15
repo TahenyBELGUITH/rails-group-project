@@ -1,0 +1,18 @@
+<br><br><div class="container" align="center">
+    <h1>public recipes</h1><br>
+
+<% @recipes.each do |recipe|%>
+<a href="./public_recipes/<%=recipe.id%>/" class="text-decoration-none">
+<div class="d-flex justify-content-around align-items-center recipe-data">
+  <div>
+   <h3><%=recipe.id%>#<%= recipe.name %></h3>
+  </div>
+  <div>
+  <p><%= recipe.description %></p>
+  </div>
+</div>
+</a>
+<% end %>
+
+
+</div>
