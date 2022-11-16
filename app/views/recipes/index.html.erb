@@ -1,25 +1,27 @@
-<br><br><div class="container" align="center">
-    <h1>All recipes</h1><br>
-<%= link_to "Add recipe" , new_user_recipe_path, class:"btn btn-success"%>
+<div class="container">
+            <div class = "recipes-list">
+  <%=link_to 'New Recipes', new_recipe_path, class:"btn btn-primary mt-4" %>
+  <div class="container-fluid w-100 p-0">
+    <% @recipes.each do |recipe| %>
+      <%= link_to recipe_path(recipe.id), id: "#{recipe.id}" do %>
+        <div class="w-100 row border border-dark my-2 mx-0 p-3">
+          <div class="col-sm-6">
+            <h5 class="card-title display-4"><%= recipe.name %> </h5>
 
+             <%= link_to 'Delete', recipe_path(recipe),  data: {
+             turbo_method: :delete,
+             turbo_confirm: "Are you sure?" },
+             class:"btn btn-danger"%>
 
-<% @recipes.each do |recipe|%>
-<a href="./recipes/<%=recipe.id%>/" class="text-decoration-none">
-<div class="d-flex justify-content-around align-items-center recipe-data">
-  <div>
-   <h3><%=recipe.id%>#<%= recipe.name %></h3>
-
-    <%= link_to 'Delete', user_recipe_path(recipe.user_id,recipe),  data: {
-      turbo_method: :delete,
-      turbo_confirm: "Are you sure?" },
-      class:"btn btn-danger"%>
-  </div>
-  <div>
-  <p><%= recipe.description %></p>
+        </div>
+        <div class="col-sm-6">
+            <h5 class="card-title"><%= recipe.name %></h5>
+              <p class="card-text"><%= recipe.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
-</a>
-<% end %>
-
 
 </div>
