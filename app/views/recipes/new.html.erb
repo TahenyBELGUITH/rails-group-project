@@ -1,6 +1,6 @@
 <br><br><div class="container">
    <h1>New Recipe</h1>
-<%= form_with model: @recipe, url: user_recipes_path, method: :post, local: true, scope: :recipe do |f| %>
+<%= form_with model: @recipe, url: recipes_path, method: :post, local: true, scope: :recipe do |f| %>
     <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control" %>
@@ -26,6 +26,6 @@
 <% end %>
 
 <br>
-<%= link_to "Back" , user_recipes_path%>
+<%= link_to "Back" , recipes_path%>
 
 </div>
