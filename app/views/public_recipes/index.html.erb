@@ -5,10 +5,14 @@
 <a href="./public_recipes/<%=recipe.id%>/" class="text-decoration-none">
 <div class="d-flex justify-content-around align-items-center recipe-data">
   <div>
-   <h3><%=recipe.id%>#<%= recipe.name %></h3>
+
+   <h3><%= recipe.id%>#<%= recipe.name %> </h3>
+   <h5>By <%= recipe.user.name %> </h5>
   </div>
   <div>
-  <p><%= recipe.description %></p>
+  <h5>Total food items:<%= recipe.foods.count%></h5>
+    <h5>Total price:<%= recipe.foods.sum(:price)%>: .00$</h5>
+
   </div>
 </div>
 </a>
