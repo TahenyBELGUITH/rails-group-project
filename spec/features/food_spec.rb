@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Food', type: :feature do
   before(:each) do
-    @user = User.create(name: 'Username')
-    @food = Food.create(name: 'f_name', measurement_unit: 'kg', quantity: 30, price: 10, user: @user)
+    @user = User.create(name: 'Name', email: 'e@g.com', password: 123456, id: 1)
+    @food = Food.create(name: 'f_name', measurement_unit: 'kg', quantity: 30, price: 10, user:@user)
   end
 
   describe 'index page' do
