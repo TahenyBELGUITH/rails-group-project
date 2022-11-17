@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   # def current_user
   #   User.first
   # end
+
   protected
 
   def configure_permitted_parameters
