@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   describe 'Food should have valid attributes' do
-    user = User.create(name: 'Name')
-    food = Food.create(name: 'f_name', measurement_unit: 'kg', quantity: 30, price: 10, user:)
+    user = User.create(id: 1,name: 'Name',email: 'ex@gm.com',password: '000000')
+    food = Food.create(name: 'f_name', measurement_unit: 'kg', quantity: 30, price: 10, user_id:1)
 
     it 'should be valid with valid input fields' do
       expect(food).to be_valid

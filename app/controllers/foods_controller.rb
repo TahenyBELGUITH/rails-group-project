@@ -1,4 +1,6 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index]
+
   def index
     @foods = current_user.foods.includes(:user)
   end
