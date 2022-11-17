@@ -58,7 +58,8 @@
 
 👤 **Seth Bizimana**
 
-Github: Seth Bizimana|[@Seth](https://github.com/Sevenpros)
+Github: [@Seth](https://github.com/Sevenpros)
+
 LinkedIn: [@Seth](https://www.linkedin.com/in/sethbizimana/)
 
 👤 **Taheny BELGUITH**
