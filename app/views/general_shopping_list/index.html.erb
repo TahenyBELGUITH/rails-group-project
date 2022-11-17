@@ -1,7 +1,7 @@
 <br><br><div class="container"> 
            <h2 class="text-primary">Shopping list</h2>
 <div class="d-flex justify-content-between w-75 mt-5 text-warning" >
-  <h3>Amount of food to buy: <%= @shopping_list.size %> </h3>
+  <h3>Amount of food to buy: <%= @foods.size %> </h3>
   <h3>Total value of food needed: <%= number_to_currency(@sum, :unit => "$") %></h3>
 </div>
   <table class="container table table-striped table-bordered mt-4">
@@ -13,11 +13,12 @@
       </tr>
     </thead>
     <tbody>
-      <% @shopping_list.each do |item| %>
+      <% @foods.each do |food| %>
+      <% quantity = RecipeFood.joins(:food).where(food_id: food.id).sum( 'quantity') %>
           <tr>
-            <th><%= Food.find(item.food_id).name %></th>
-            <td><%= item.quantity %></td>
-            <td><%= item.value %></td>
+            <th><%= food.name %></th>
+            <td><%= quantity %></td>
+            <td><%=  number_to_currency(@sum, :unit => "$")%></td>
           </tr>
       <% end %>
     </tbody>
