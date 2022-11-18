@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Food', type: :feature do
-  before(:each) do
-    @user = User.create(name: 'Name', email: 'e@g.com', password: 123_456, id: 1)
-    @food = Food.create(name: 'f_name', measurement_unit: 'kg', quantity: 30, price: 10, user: @user)
-  end
+    include Devise::Test::IntegrationHelpers
+    let(:user) { User.create(name: 'Name', email: 'a@mail.com', password: 'password') }
+    let(:food) { user.foods.create(name: 'apple', measurementUnit: 'kg', price: 4) }  
+  
 
   describe 'index page' do
     before(:each) do
+      sign_in user
       visit '/foods'
     end
 

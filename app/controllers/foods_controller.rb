@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @foods = User.first.foods.includes(:user)
+    @foods = current_user.foods.includes(:user)
   end
 
   def new
@@ -8,7 +8,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = User.rist.foods.build(food_params)
+    @food = current_user.foods.build(food_params)
     if @food.save
       redirect_to foods_path
     else
@@ -29,6 +29,5 @@ class FoodsController < ApplicationController
 
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
-    # params.require(:post).permit(:title, :text)
   end
 end

@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Foods', type: :request do
+  include Devise::Test::IntegrationHelpers
+  let(:user) { User.create(name: 'Name', email: 'a@mail.com', password: 'password') }
+
   context 'GET /index' do
     before(:each) do
+      sign_in user
       get '/foods'
     end
     it 'Foods index is successful' do
