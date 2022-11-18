@@ -1,0 +1,30 @@
+<br><br><div class="container">
+           <h2 class="text-primary">Shopping list</h2>
+<div class="d-flex justify-content-between w-75 mt-5 text-warning" >
+  <h3>Amount of food to buy: <%= @items%> </h3>
+  <h3>Total value of food needed: <%= number_to_currency(@sum, :unit => "$") %></h3>
+</div>
+  <table class="container table table-striped table-bordered mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+      <% quantity = RecipeFood.joins(:food).where(food_id: food.id).sum( 'quantity') %>
+      <% food_quantity = @foods.where(id: food.id).sum( 'quantity') %>
+       <% if(quantity - food_quantity) > 0%> 
+          <tr>
+            <th><%= food.name %></th>
+            <td><%= quantity - food_quantity %></td>
+            <td><%=  number_to_currency(food.price * (quantity - food_quantity) , :unit => "$")%></td>
+          </tr>
+        <% else %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
